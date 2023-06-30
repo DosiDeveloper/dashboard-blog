@@ -14,7 +14,7 @@ export default function Register() {
       title={
         <ThemedTitleV2
           collapsed={false}
-          text="refine Project"
+          text="ChukutoPlanet"
           icon={<AppIcon />}
         />
       }

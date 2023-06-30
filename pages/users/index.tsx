@@ -1,11 +1,11 @@
-import { MuiShowInferencer } from "@refinedev/inferencer/mui";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { authProvider } from "src/authProvider";
+import { MuiInferencer } from "@refinedev/inferencer/mui";
 
-export default function BlogPostShow() {
-  return <MuiShowInferencer />;
-}
+export default function UsersyList() {
+    return <MuiInferencer />
+};
 
 export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
   const { authenticated, redirectTo } = await authProvider.check(context);
@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
         ...translateProps,
       },
       redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent("/blog-posts")}`,
+        destination: `${redirectTo}?to=${encodeURIComponent("/users")}`,
         permanent: false,
       },
     };

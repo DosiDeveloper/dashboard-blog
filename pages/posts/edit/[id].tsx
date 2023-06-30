@@ -1,10 +1,10 @@
-import { MuiListInferencer } from "@refinedev/inferencer/mui";
+import { MuiEditInferencer } from "@refinedev/inferencer/mui";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { authProvider } from "src/authProvider";
 
-export default function CategoryList() {
-  return <MuiListInferencer />;
+export default function BlogPostEdit() {
+  return <MuiEditInferencer />;
 }
 
 export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
         ...translateProps,
       },
       redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent("/categories")}`,
+        destination: `${redirectTo}?to=${encodeURIComponent("/posts")}`,
         permanent: false,
       },
     };

@@ -1,4 +1,5 @@
 import { GitHubBanner, Refine } from "@refinedev/core";
+import Head from "next/head";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import {
   notificationProvider,
@@ -11,7 +12,6 @@ import routerProvider, {
 } from "@refinedev/nextjs-router";
 import type { NextPage } from "next";
 import { AppProps } from "next/app";
-
 import { Header } from "@components/header";
 import { ColorModeContextProvider } from "@contexts";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -62,7 +62,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
 
   return (
     <>
-      <GitHubBanner />
+      <Head>
+        <title>
+          Dashboard Chukuto Planet
+        </title>
+      </Head>
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <CssBaseline />
@@ -76,25 +80,36 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
               i18nProvider={i18nProvider}
               resources={[
                 {
-                  name: "blog_posts",
-                  list: "/blog-posts",
-                  create: "/blog-posts/create",
-                  edit: "/blog-posts/edit/:id",
-                  show: "/blog-posts/show/:id",
+                  name: "posts",
+                  list: "/posts",
+                  create: "/posts/create",
+                  edit: "/posts/edit/:id",
+                  show: "/posts/show/:id",
                   meta: {
                     canDelete: true,
                   },
                 },
                 {
-                  name: "categories",
-                  list: "/categories",
-                  create: "/categories/create",
-                  edit: "/categories/edit/:id",
-                  show: "/categories/show/:id",
+                  name: "category",
+                  list: "/category",
+                  create: "/category/create",
+                  edit: "/category/edit/:id",
+                  show: "/category/show/:id",
                   meta: {
                     canDelete: true,
                   },
                 },
+                {
+                  name: "users",
+                  list: "/users",
+                  meta: {
+                    canDelete: true
+                  }
+                },
+                {
+                  name: "parent",
+                  list: "/parent_category"
+                }
               ]}
               options={{
                 syncWithLocation: true,
